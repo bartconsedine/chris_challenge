@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema }= require('graphql')
+const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema } = require('graphql')
 const axios = require('axios')
 
 //workout type 
@@ -9,11 +9,11 @@ const WorkoutType = new GraphQLObjectType({
         workout_day: { type: GraphQLString },
         workout_type: { type: GraphQLString },
         workout_duration: { type: GraphQLString },
-        workout_location_lat: { type: GraphQLString }, 
+        workout_location_lat: { type: GraphQLString },
         workout_location_lon: { type: GraphQLString }
     })
 
-});  
+});
 
 
 //root query
@@ -23,14 +23,24 @@ const RootQuery = new GraphQLObjectType({
     fields: {
         exercises: {
             type: new GraphQLList(WorkoutType),
-            resolve(parent, args){
+            resolve(parent, args) {
                 return axios.get('http://localhost:5005/api/workouts/')
-                .then(res => res.data)
+                    .then(res => res.data)
+            }
+        },
+        exercise: {
+            type: WorkoutType,
+            args: {
+                _id: { type: GraphQLString }
+            },
+            resolve(parent, args) {
+                return axios.get(`http://localhost:5005/api/workouts/${args._id}`)
+                    .then(res => res.data)
             }
         }
     }
 })
 
-module.exports = new GraphQLSchema ({
+module.exports = new GraphQLSchema({
     query: RootQuery
 })
