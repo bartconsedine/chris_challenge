@@ -6,11 +6,11 @@ const axios = require('axios')
 const WorkoutType = new GraphQLObjectType({
     name: 'Workout',
     fields: () => ({
-        workout_day: { type: GraphQLInt },
+        workout_day: { type: GraphQLString },
         workout_type: { type: GraphQLString },
-        workout_duration: { type: GraphQLInt },
-        workout_location_lat: { type: GraphQLInt }, 
-        workout_location_lon: { type: GraphQLInt }
+        workout_duration: { type: GraphQLString },
+        workout_location_lat: { type: GraphQLString }, 
+        workout_location_lon: { type: GraphQLString }
     })
 
 });  
@@ -24,7 +24,7 @@ const RootQuery = new GraphQLObjectType({
         exercises: {
             type: new GraphQLList(WorkoutType),
             resolve(parent, args){
-                return axios.get('http://localhost:5001/api/items/')
+                return axios.get('http://localhost:5005/api/workouts/')
                 .then(res => res.data)
             }
         }
