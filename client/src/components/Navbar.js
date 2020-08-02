@@ -44,10 +44,15 @@ const AppNavBar = () => {
                                 </NavLink>
                             </NavItem>
                             <NavItem >
+                                <NavLink href="http://localhost:5005/graphql">
+                                    Graphiql
+                                </NavLink>
+                            </NavItem>
+                            {/* <NavItem >
                                 <NavLink href="/map">
                                     Map
                                 </NavLink>
-                            </NavItem>
+                            </NavItem> */}
 
                         </Nav>
                     </Collapse>

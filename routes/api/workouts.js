@@ -1,21 +1,21 @@
 const express = require('express')
 const router = express.Router()
 
-//Item Model
+//workout Model
 const Workout = require('../../models/Workout')
 
-//@route Get api/items
-//@Desc get all items
-//@Desc get all items
+//@route Get api/workout
+//@Desc get all workout
+//@Desc get all workout
 router.get('/', (req, res) =>{
     Workout.find()
         .sort({ date: -1 })
         .then(workouts => res.json(workouts))
 })
 
-//@route POST api/items
-//@Desc get all items
-//@Desc get all items
+//@route POST api/workout
+//@Desc get all workout
+//@Desc get all workout
 router.post('/', (req, res) =>{
     const newWorkout = new Workout({
         name: req.body.name,
@@ -28,18 +28,18 @@ router.post('/', (req, res) =>{
     newWorkout.save().then(workout=>res.json(workout))
 })  
 
-//@route DELETE api/items
-//@Desc get all items
-//@Desc get all items
+//@route DELETE api/workout
+//@Desc get all workout
+//@Desc get all workout
 router.delete('/:id', (req, res) =>{
-    Item.findById(req.params.id)
+    Workout.findById(req.params.id)
     .then(item => item.remove().then(() => res.json({success: true})))
     .catch(err => res.status(404).json({success: false}))
 })
 
-//@route DELETE api/items
-//@Desc get all items
-//@Desc get all items
+//@route DELETE api/workout
+//@Desc get all workout
+//@Desc get all workout
 router.get('/:id', (req, res) =>{
     Workout.findById(req.params.id)
     .then(workouts => res.json(workouts))
