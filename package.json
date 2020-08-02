@@ -4,7 +4,8 @@
   "description": "coding challenge for chris",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/bartconsedine/chris_challenge/issues"
   },
-  "homepage": "https://github.com/bartconsedine/chris_challenge#readme"
+  "homepage": "https://github.com/bartconsedine/chris_challenge#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "express-graphql": "^0.11.0",
+    "graphql": "^15.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
