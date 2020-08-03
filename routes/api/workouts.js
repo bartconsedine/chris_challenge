@@ -20,7 +20,11 @@ router.post('/', (req, res) =>{
     const newWorkout = new Workout({
         name: req.body.name,
         workout_day: req.body.workout_day,
-        workout_type: req.body.workout_type,
+        workout_type_0: req.body.workout_type_0,
+        workout_type_1: req.body.workout_type_1,
+        workout_type_2: req.body.workout_type_2,
+        workout_type_3: req.body.workout_type_3,
+        workout_type_4: req.body.workout_type_4,
         workout_duration: req.body.workout_duration,
         workout_location_lon: req.body.workout_location_lon,
         workout_location_lat: req.body.workout_location_lat

@@ -20,7 +20,7 @@ const AppNavBar = () => {
     return (
 
         <div onClick={() => toggle()}>
-            <Navbar color="dark" dark expand="sm" className="mb-5">
+            <Navbar color="dark" dark expand="sm" className="mb-2">
                 <Container>
                     <NavbarBrand href="/">
                         Workout Tracker
@@ -30,17 +30,17 @@ const AppNavBar = () => {
                         <Nav className="ml-auto" navbar>
                             <NavItem >
                                 <NavLink href="/">
-                                    main
+                                    home
                                 </NavLink>
                             </NavItem>
                             <NavItem >
                                 <NavLink href="/form">
-                                    Form
+                                    Add Workout
                                 </NavLink>
                             </NavItem>
                             <NavItem >
                                 <NavLink href="/list">
-                                    List
+                                    Past Workouts
                                 </NavLink>
                             </NavItem>
                             <NavItem >
@@ -48,11 +48,11 @@ const AppNavBar = () => {
                                     Graphiql
                                 </NavLink>
                             </NavItem>
-                            {/* <NavItem >
+                            <NavItem >
                                 <NavLink href="/map">
-                                    Map
+                                    Workout Map
                                 </NavLink>
-                            </NavItem> */}
+                            </NavItem>
 
                         </Nav>
                     </Collapse>

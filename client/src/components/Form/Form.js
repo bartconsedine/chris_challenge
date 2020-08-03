@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import WorkoutTypes from './WorkoutTypes'
 
 const Form = () => {
 
     const [formData, setFormData] = useState({})
+    const [workoutTotal, setWorkoutTotal] = useState(1)
 
     const handleFormChange = (e) => {
         // grabs the value of each field that is changed
@@ -14,8 +16,6 @@ const Form = () => {
             [e.target.name]: value
         })
         console.log(formData)
-
-
     }
 
     const handleFormSubmit = (e) => {
@@ -29,8 +29,34 @@ const Form = () => {
             })
     }
 
+    const changeWorkout = (value) => {
+
+        if (workoutTotal <= 1 && value == -1) setWorkoutTotal(1)
+        else if (workoutTotal >= 5 && value == 1) setWorkoutTotal(5)
+        else setWorkoutTotal(workoutTotal + value)
+    }
+
+    const renderWorkoutTypes = () => {
+
+        let WorkoutTypeCollection = []
+
+        for (let i = 0; i < workoutTotal; i++) {
+
+           WorkoutTypeCollection.push(<WorkoutTypes count={i} handleFormChange={handleFormChange}/>)
+
+        }
+
+        return WorkoutTypeCollection.map(item=>item)
+
+    }
+
     return (
         <div className="container">
+            <h2>Add a workout:</h2>
+            <span className="mr-2">workouts: {workoutTotal}</span>
+            <button className="btn btn-primary mr-1" onClick={() => changeWorkout(1)}>+</button>
+            <button className="btn btn-primary" onClick={() => changeWorkout(-1)}>-</button>
+
             <form onSubmit={handleFormSubmit}>
                 <div className="form-group">
                     <label>workout day</label>
@@ -41,14 +67,20 @@ const Form = () => {
                         onChange={handleFormChange}
                     ></input>
                 </div>
-                <div className="form-group">
+
+                {renderWorkoutTypes()}
+
+                {/* <div className="form-group">
                     <label>workout type</label>
                     <input className="form-control"
                         name="workout_type"
                         value={formData.workout_type}
                         onChange={handleFormChange}
                     ></input>
-                </div>
+                </div> */}
+
+
+
                 <div className="form-group">
                     <label>workout duration</label>
                     <input className="form-control"
