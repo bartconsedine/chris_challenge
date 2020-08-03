@@ -15,7 +15,6 @@ const AppNavBar = () => {
 
     const toggle = () => {
         setToggleValue(!toggleValue)
-        console.log(toggleValue)
     }
     return (
 
