@@ -12,16 +12,21 @@ To run this project execute the following commands in your terminal:
 3 - Run npm install in the root folder for the server portion of the application:
     'npm i'
 
-4 - Navigate into the client (front-end) portion of the application
+4 - Navigate into the client (front-end) portion of the application:
     'cd client'
 
 5 - Run npm install in the client folder for the front-end portion of the application:
     'npm i'
 
-6 - Navigate back to the root directory
+6 - Navigate back to the root directory:
     'cd ..'
 
-7 - Execute the following command to start the both servers at the same time.  The Client will run on 'localhost:3000' and the back-end will run on 'localhost:5005'
+7 - Execute the following command to start the both servers at the same time: 
+
     'npm run dev'
+
+
+##The Client will run on 'localhost:3000' and the back-end will run on 'localhost:5005'
+    
 
 
