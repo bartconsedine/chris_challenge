@@ -16,7 +16,7 @@ To run this project execute the following commands in your terminal:
     'cd client'
 
 5 - Run npm install in the client folder for the front-end portion of the application:
-    'cd npm i'
+    'npm i'
 
 6 - Navigate back to the root directory
     'cd ..'
