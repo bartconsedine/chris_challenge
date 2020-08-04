@@ -15,7 +15,6 @@ const WORKOUTS_QUERY = gql`
 }`
 
 
-
 const WorkoutMap = () => {
 
     const viewPortWidth = () => {
@@ -99,18 +98,11 @@ const WorkoutMap = () => {
                                 {
                                     data.exercises.map((workout, index) =>
                                         <Marker
-                                            className={"marker"}
+                                         
                                             key={index}
                                             latitude={parseFloat(workout.workout_location_lat)}
                                             longitude={parseFloat(workout.workout_location_lon)}
-                                            // onClick={async (e) => {
-                                            //     markerClickedHandler(
-                                            //         parseFloat(item[1]), 
-                                            //         parseFloat(item[2]),
-                                            //         item[0]
-                                            //     )
-                                            // }
-                                            // }
+                                            
                                         >
                                             <div className="spinner-grow spinner-grow-sm red"></div>
                                         </Marker>
