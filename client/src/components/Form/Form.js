@@ -50,7 +50,10 @@ const Form = () => {
 
     }
 
+
     return (
+
+    
         <div className="container">
             <h2>Add a workout:</h2>
             <span className="mr-2">workouts: {workoutTotal}</span>

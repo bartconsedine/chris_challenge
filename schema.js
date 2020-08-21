@@ -6,6 +6,7 @@ const axios = require('axios')
 const WorkoutType = new GraphQLObjectType({
     name: 'Workout',
     fields: () => ({
+        _id: { type: GraphQLString },
         workout_day: { type: GraphQLString },
         workout_type: { type: GraphQLString },
         workout_duration: { type: GraphQLString },
