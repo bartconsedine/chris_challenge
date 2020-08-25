@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema } = require('graphql')
+const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema, GraphQLDate } = require('graphql')
 const axios = require('axios')
 
 //workout type 
@@ -9,9 +9,15 @@ const WorkoutType = new GraphQLObjectType({
         _id: { type: GraphQLString },
         workout_day: { type: GraphQLString },
         workout_type: { type: GraphQLString },
+        workout_type_0: { type: GraphQLString },
+        workout_type_1: { type: GraphQLString },
+        workout_type_2: { type: GraphQLString },
+        workout_type_3: { type: GraphQLString },
+        workout_type_4: { type: GraphQLString },
         workout_duration: { type: GraphQLString },
         workout_location_lat: { type: GraphQLString },
-        workout_location_lon: { type: GraphQLString }
+        workout_location_lon: { type: GraphQLString },
+        date: { type: GraphQLString }
     })
 
 });

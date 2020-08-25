@@ -6,7 +6,7 @@ const WorkoutSchema = new Schema({
         type: String,
         required: false
     },
-    workout_type: {
+    workout_type_0: {
         type: String,
         required: false
     },

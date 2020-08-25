@@ -7,11 +7,15 @@ const WORKOUTS_QUERY = gql`
     query WorkoutsQuery{
         exercises {
             _id
-            workout_day
-            workout_type
+            workout_type_0
+            workout_type_1
+            workout_type_2
+            workout_type_3
+            workout_type_4    
             workout_duration
             workout_location_lat
             workout_location_lon
+            date
         }
 }`
 
@@ -25,10 +29,17 @@ const deleteWorkout = (id) => {
   console.log("delete pressed")
 }
 
-const formatDate = (time) => {
-    let d = new Date(time)
-    console.log(d)
-    return d.toDateString()
+
+const renderTypes = (workout) => {
+    return(
+        <li className="list-group-item d-flex justify-content-between align-items-center">
+                                                Workout Type: {workout}
+                                            </li>
+    )
+}
+
+const convertStringToDate = (s) => {
+    return new Date(s)
 }
 
 
@@ -47,13 +58,20 @@ const List = () => {
                         <>
                             {
                                 data.exercises.map((workout) =>
+                                
                                     <div>
                                         
-                                        <h1>{`${workout.workout_day}`}</h1>
+                                        {/* <h1>{`${workout.date.getMonth()}`}</h1> */}
+                                        <h1>{`${convertStringToDate(workout.date).getMonth()}`}</h1>
                                         <ul className="list-group">
-                                            {/* <li className="list-group-item d-flex justify-content-between align-items-center">Workout Type: {workout.workout_type}
+                                            <li className="list-group-item d-flex justify-content-between align-items-center">
                                                 <span className="badge badge-primary badge-pill">Duration: {workout.workout_duration} minutes   </span>
-                                            </li> */}
+                                            </li>
+                                            {workout.workout_type_0 ? renderTypes(workout.workout_type_0): null}
+                                            {workout.workout_type_1 ? renderTypes(workout.workout_type_1): null}
+                                            {workout.workout_type_2 ? renderTypes(workout.workout_type_2): null}
+                                            {workout.workout_type_3 ? renderTypes(workout.workout_type_3): null}
+                                            {workout.workout_type_4 ? renderTypes(workout.workout_type_4): null}
                                             <li className="list-group-item d-flex justify-content-between align-items-center">Workout located at {workout.workout_location_lat} latitude and {workout.workout_location_lon} longitude</li>
                                             <li><button onClick={()=>deleteWorkout(workout._id)}>Delete</button></li>
 
